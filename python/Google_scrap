@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 11 15:31:37 2022
+
+"""
+
+import pandas as pd
+from GoogleNews import GoogleNews
+googlenews = GoogleNews()
+
+
+print(googlenews.getVersion())
+
+googlenews = GoogleNews(lang='en')
+
+googlenews = GoogleNews(lang='en', region='US')
+
+googlenews = GoogleNews(period='7d')
+
+googlenews = GoogleNews(start='01/01/2022',end='01/11/2022')
+
+googlenews = GoogleNews(encode='utf-8')
+
+googlenews.get_news('Pratt & Whitney')
+
+
+googlenews.search('Pratt & Whitney')
+
+
+googlenews.get_page(2)
+
+result = googlenews.page_at(2)
+
+
+googlenews.total_count()
+
+
+googlenews.results()
+
+
+googlenews.get_texts()
+
+
+googlenews.get_links()
+
+
+googlenews.clear()
+
+#%%
+import json
+
+
+with open('output_file_pratt_whitney.txt', 'w') as convert_file:
+	convert_file.write(json.dumps(result, indent=4, sort_keys=True, default=str))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
